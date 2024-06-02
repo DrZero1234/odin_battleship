@@ -1,8 +1,8 @@
 import Ship from "./Ship";
 
 class Gameboard {
-    constructor() {
-        this.boardSize = 10;
+    constructor(boardSize = 10) {
+        this.boardSize = boardSize;
         this.board = new Array(this.boardSize).fill(null).map((o,i) => new Array(this.boardSize).fill(null))
         this.missedAttacks = [];
         this.isAllShipSunk = false;
@@ -69,7 +69,6 @@ class Gameboard {
             rowShips = row.filter((elem) => elem instanceof Ship)
             shipCells = shipCells.concat(rowShips)
         }
-        console.log(shipCells)
         
         this.isAllShipSunk = shipCells.every((shipCell) => shipCell.sunk === true)
         return this.isAllShipSunk
