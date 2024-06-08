@@ -1,3 +1,4 @@
+import { ShipsArray } from "../data/ShipArray";
 import Gameboard from "./Gameboard";
 
 class Player {
@@ -5,6 +6,7 @@ class Player {
         this.name = name;
         this.isHuman = isHuman
         this.gameboard = new Gameboard();
+        this.shipsArray = ShipsArray(this.gameboard.boardSize);
     }
 }
 

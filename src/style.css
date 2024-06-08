@@ -65,5 +65,62 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-size: 0.938rem;
-    background-color: green;
+    background-color: rgba(129, 182, 227, 1);
+}
+
+.game-container {
+    height: 100%;
+    display: flex;
+    gap: 4em;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.board-title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    
+}
+
+.gameboard-grid {
+    display: grid;
+    grid: repeat(10, 1fr) / repeat(10,1fr);
+}
+
+.gameboard-grid .cell {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+
+.gameboard-grid .cell {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.gameboard-grid .cell:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+.player-board .cell,
+.cpu-board .hit,
+.cpu-board .miss {
+    pointer-events: none;
+}
+
+.hit {
+    background-color:green !important;
+}
+.miss {
+    background-color: red !important;
 }
