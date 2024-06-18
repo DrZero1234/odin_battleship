@@ -69,12 +69,72 @@ body {
 }
 
 .game-container {
+    gap: 4em;
+    flex-direction: row;
+    display: flex;
+}
+
+.game-wrapper,
+.menu-container {
     height: 100%;
     display: flex;
-    gap: 4em;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+.menu-content {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+    height: 50%;
+    column-gap: 1.5em;
+}
+
+.gamemode-btn {
+    background-color: rebeccapurple;
+    color: red;
+    border: none;
+}
+
+#site-title {
+    font-size: 3.25rem;
+    font-weight: 900;
+    letter-spacing: 7px;
+    grid-column: 1 / span 2;
+} 
+
+.game-legend {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.legend-sign::before {
+    content: "";
+    display: inline-block;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.hit.legend-sign::before {
+    background-color: green !important;
+}
+
+.miss.legend-sign::before {
+    background-color: red !important;
+}
+
+.alive.legend-sign::before {
+    background-color: blue;
+}
+
+
+
+
+
 
 .board-wrapper {
     display: flex;
@@ -93,17 +153,12 @@ body {
 
 .gameboard-grid {
     display: grid;
-    grid: repeat(10, 1fr) / repeat(10,1fr);
-}
-
-.gameboard-grid .cell {
-    padding: 10px;
-    border: 1px solid black;
 }
 
 
+
 .gameboard-grid .cell {
-    padding: 20px;
+    padding: 12px;
     border: 1px solid black;
 }
 
@@ -118,9 +173,8 @@ body {
     pointer-events: none;
 }
 
-.hit {
-    background-color:green !important;
-}
-.miss {
-    background-color: red !important;
+
+
+.inactive {
+    display: none;
 }

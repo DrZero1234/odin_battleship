@@ -1,9 +1,14 @@
+import { repeat } from "lodash";
 import Player from "../classes/Player";
 
 export function generateGameboard(player) {
     if (!player instanceof Player) {
         return false
     }
+    const gameboardElems = document.querySelectorAll(".gameboard-grid");
+    console.log(gameboardElems)
+    console.log(player.boardSize)
+    gameboardElems.forEach((gameboardElem) => {gameboardElem.setAttribute("style","grid-template-columns : repeat(" + player.boardSize + ",minmax(10px,1fr)" )})
     let gameboard_grid;
     let board_title;
     const board = player.gameboard.board;
@@ -21,17 +26,18 @@ export function generateGameboard(player) {
     }
     console.log(gameboard_grid);
 
-    for (let i = 0; i < player.gameboard.boardSize;i++) {
-        for (let j = 0; j < player.gameboard.boardSize;j++) {
+    for (let row = 0; row < player.gameboard.boardSize;row++) {
+        for (let col = 0; col < player.gameboard.boardSize;col++) {
             let className;
             let cell = document.createElement("div");
             cell.className = "cell";
-            cell.dataset.row = i;
-            cell.dataset.col = j;
+            cell.dataset.row = row;
+            cell.dataset.col = col;
+            if (board[row][col] !== null && player.isHuman) {
+                cell.style.backgroundColor = "blue"
+                console.log(`Ship cell ${row} ${col}`)
+            }
             gameboard_grid.appendChild(cell);
         }
     }
-    
-
-
 }
