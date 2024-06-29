@@ -1,5 +1,7 @@
 import { repeat } from "lodash";
-import Player from "../classes/Player";
+import Player from "../../classes/Player";
+import { attackCell } from "./attackCell";
+import { updateCell } from "./updateCell";
 
 export function generateGameboard(player) {
     if (!player instanceof Player) {
@@ -8,7 +10,7 @@ export function generateGameboard(player) {
     const gameboardElems = document.querySelectorAll(".gameboard-grid");
     console.log(gameboardElems)
     console.log(player.boardSize)
-    gameboardElems.forEach((gameboardElem) => {gameboardElem.setAttribute("style","grid-template-columns : repeat(" + player.boardSize + ",minmax(10px,1fr)" )})
+    gameboardElems.forEach((gameboardElem) => {gameboardElem.setAttribute("style","grid-template-columns : repeat(" + player.boardSize + ", 1fr" )})
     let gameboard_grid;
     let board_title;
     const board = player.gameboard.board;
@@ -37,6 +39,7 @@ export function generateGameboard(player) {
                 cell.style.backgroundColor = "blue"
                 console.log(`Ship cell ${row} ${col}`)
             }
+            cell.addEventListener("click", () => {attackCell(player),updateCell(player,row,col)})
             gameboard_grid.appendChild(cell);
         }
     }

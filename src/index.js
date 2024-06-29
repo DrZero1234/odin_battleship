@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { MainMenu } from './DOM/MainMenu';
 
 import "./style.css"
-import { generateGameboard } from './functions/generateGameboard';
+import { generateGameboard } from './functions/DOMFunctions/generateGameboard';
 import Player from './classes/Player';
 import { randomizeShipPlacement } from './functions/randomizeShipPlacement';
 

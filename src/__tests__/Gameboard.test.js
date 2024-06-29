@@ -129,8 +129,6 @@ describe("Testing Gameboard", () => {
             gameboard.receiveAttack(3,6);
 
             expect(gameboard.isAllShipSunk).toBe(false)
-
-
         })
     })
 

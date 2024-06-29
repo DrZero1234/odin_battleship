@@ -69,9 +69,10 @@ body {
 }
 
 .game-container {
-    gap: 4em;
-    flex-direction: row;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: minmax(50px,100px) 1fr minmax(50px, 100px);
+    column-gap: 2em;
 }
 
 .game-wrapper,
@@ -102,7 +103,14 @@ body {
     font-weight: 900;
     letter-spacing: 7px;
     grid-column: 1 / span 2;
-} 
+}
+
+#status-text,
+.game-legend {
+    grid-column: 1 / span 2;
+}
+
+
 
 .game-legend {
     margin-top: 2em;
